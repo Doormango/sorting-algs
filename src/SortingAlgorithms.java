@@ -1,7 +1,5 @@
 import java.util.Stack;
 
-// TODO Check: http://bigocheatsheet.com/, http://algs4.cs.princeton.edu/home/, https://en.wikipedia.org/wiki/Sorting_algorithm
-
 /**
  * @author Dario Trinchero
  */
@@ -190,8 +188,6 @@ public class SortingAlgorithms {
 //	}
 	
 	public static <T extends Comparable<T>> void librarySort(T[] list) { // TODO Improvement on insertion
-		// http://programmingtenacity.blogspot.co.za/2016/05/library-sort.html
-		// https://en.wikipedia.org/wiki/Library_sort
 	}
 	
 	private static <T extends Comparable<T>> void merge(T[] src, T[] dst, int lo, int mid, int hi) {
@@ -324,7 +320,6 @@ public class SortingAlgorithms {
 	}
 	
 	public static <T extends Comparable<T>> void tournamentSort(T[] list) { // TODO Improvement on insertion - variation of heap
-		// https://en.wikipedia.org/wiki/Tournament_sort
 	}
 	
 	/**
@@ -516,23 +511,18 @@ public class SortingAlgorithms {
 	}
 	
 	public static <T extends Comparable<T>> void smoothSort(T[] list) {
-
 	}
 	
 	public static <T extends Comparable<T>> void timSort(T[] list) {
-		
 	}
 	
 	public static <T extends Comparable<T>> void radixSort(T[] list) { // May not accept Comparable[]
-
 	}
 	
 	public static <T extends Comparable<T>> void bucketSort(T[] list) { // May not accept Comparable[]
-
 	}
 	
 	public static <T extends Comparable<T>> void countingSort(T[] list) { // May not accept Comparable[]
-
 	}
 	
 	private static <T extends Comparable<T>> boolean isSorted(T[] list) { // Useful for assertions
