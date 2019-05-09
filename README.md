@@ -26,7 +26,7 @@ Implementations of sequential and binary search are also included.
 
 Execution, testing and comparison of the sorting algorithms is performed by `SortDriver.java`. Every algorithm in `SortingAlgorithms.java` has an associated annotation which stores the name, properties and time and space complexities of the algorithm. `SortDriver.java` will automatically test every method in `SortingAlgorithms.java` for which this annotation is present.
 
-The advantage of this method is twofold: it allows slower algorithms to easily be excluded from testing, simply by commenting out the single-line annotation preceding the sorting method, and allows the driver to easily distinguish sorting methods from helper methods, even if they are also public, without storing explicitly calling each method manually.
+The advantage of this method is many-fold: it allows slower algorithms to easily be excluded from testing, simply by commenting out the single-line annotation preceding the sorting method, it nicely groups together the theoretical properties of each algorithm to be printed out during testing, and it allows the driver to easily distinguish sorting methods from helper methods, even if they are also public, without storing explicitly calling each method manually.
 
 Each algorithm is tested on a sorted, random and reverse-sorted list with size given by the final variable `SIZE` at the top of `SortDriver.java`, and range given by `RANGE`, located similarly. The algorithms are timed, and the running times are output. A small random list of only 20 items is also sorted just to demonstrate the algorithm working correctly.
 
