@@ -34,17 +34,17 @@ Each algorithm is tested on a sorted, random and reverse-sorted list with size g
 
 It is my plan to continue improving and expanding this library. The main additions planned are improvements or variations on the current algorithms, string sorts such as bucket sort, and one or two hybrid sorts like Timsort. The full list of planned future additions is below, in decreasing order of priority:
 
-1 In-place merge sort
-2 Merge sort (bottom-up / iterative)
-3 Tim sort
-4 Radix sort
-5 Bucket sort
-6 Counting sort
-7 Shell sort with dynamic gaps
-8 Tree sort using red-black tree
-9 Smooth sort
-10 Library sort
-11 Tournament sort
+1. In-place merge sort
+2. Merge sort (bottom-up / iterative)
+3. Tim sort
+4. Radix sort
+5. Bucket sort
+6. Counting sort
+7. Shell sort with dynamic gaps
+8. Tree sort using red-black tree
+9. Smooth sort
+10. Library sort
+11. Tournament sort
 
 One reason for the omission of (some of) the above sorts is the difficulty of finding accurate and thorough descriptions of the algorithms.
 
