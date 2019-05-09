@@ -163,33 +163,7 @@ public class SortingAlgorithms {
 		final int[] GAPS = { 701, 301, 132, 57, 23, 10, 4, 1 }; // Varies in implementation
 		for (int gap : GAPS) insertionSort(list, gap);
 	}
-	
-	// TODO More shell sort versions with dynamic gaps
-	
-//	/**
-//	 * Finds appropriate location of item in a sorted array, up to a given last item
-//	 * 
-//	 * @param list array to search
-//	 * @param item item to be placed in array
-//	 * @param end index of last item to search
-//	 * @return correct index of item in array
-//	 */
-//	private static <T extends Comparable<T>> int binarySearch(T[] list, T item, int end) { // Modify to work for librarySort 
-//		int lo = 0, hi = end, mid = lo + (hi - lo) / 2;
-//
-//		while (lo < hi) {
-//			if (list[mid].compareTo(item) == 0) return mid;
-//			else if (list[mid].compareTo(item) < 0) lo = mid;
-//			else hi = mid;
-//			mid = lo + (hi - lo) / 2;
-//		}
-//
-//		return mid;
-//	}
-	
-	public static <T extends Comparable<T>> void librarySort(T[] list) { // TODO Improvement on insertion
-	}
-	
+
 	private static <T extends Comparable<T>> void merge(T[] src, T[] dst, int lo, int mid, int hi) {
 		int l = lo, r = mid + 1;
 		for (int pos = lo; pos <= hi; pos++) {
@@ -317,9 +291,6 @@ public class SortingAlgorithms {
 			swap(list, 0, end--);
 			sink(list, 0, end);
 		}
-	}
-	
-	public static <T extends Comparable<T>> void tournamentSort(T[] list) { // TODO Improvement on insertion - variation of heap
 	}
 	
 	/**
@@ -509,22 +480,7 @@ public class SortingAlgorithms {
 		for (T item : list) tree.insert(item);
 		tree.inOrder(list);
 	}
-	
-	public static <T extends Comparable<T>> void smoothSort(T[] list) {
-	}
-	
-	public static <T extends Comparable<T>> void timSort(T[] list) {
-	}
-	
-	public static <T extends Comparable<T>> void radixSort(T[] list) { // May not accept Comparable[]
-	}
-	
-	public static <T extends Comparable<T>> void bucketSort(T[] list) { // May not accept Comparable[]
-	}
-	
-	public static <T extends Comparable<T>> void countingSort(T[] list) { // May not accept Comparable[]
-	}
-	
+
 	private static <T extends Comparable<T>> boolean isSorted(T[] list) { // Useful for assertions
 		for (int i = 0; i < list.length - 1; i++) {
 			if (list[i].compareTo(list[i + 1]) > 0) return false;
