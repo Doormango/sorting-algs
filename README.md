@@ -30,7 +30,7 @@ The advantage of this method is many-fold: it allows slower algorithms to easily
 
 Each algorithm is tested on a sorted, random and reverse-sorted list, each with size given by the `final` variable `SIZE` at the top of `SortDriver.java`, and numerical range given by `RANGE`, located similarly. The algorithms are timed, and the measured running times are printed. A small random list of only 20 items is also sorted just to demonstrate the algorithm working correctly.
 
-## Future expansion
+## Future Expansion
 
 It is my plan to continue improving and expanding this library. The main additions planned are improvements or variations on the current algorithms, string sorts such as bucket sort, and one or two hybrid sorts like Timsort. The full list of planned future additions is below, in decreasing order of priority:
 
