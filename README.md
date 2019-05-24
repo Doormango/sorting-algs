@@ -51,8 +51,3 @@ One reason for the omission of (some of) the above sorts is the difficulty of fi
 ## Contributing
 
 Pull requests are welcome - in fact, encouraged.
-
-## Licence
-
-This project is licensed under the [GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)
-licence.
