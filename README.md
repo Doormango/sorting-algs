@@ -34,7 +34,7 @@ Each algorithm is tested on a sorted, random and reverse-sorted list, each with 
 
 It is my plan to continue improving and expanding this library. The main additions planned are improvements or variations on the current algorithms, string sorts such as bucket sort, and one or two hybrid sorts like Timsort. The full list of planned future additions is below, in decreasing order of priority:
 
-1. In-place merge sort
+1. In-place merge sort (block merge sort)
 2. Merge sort (bottom-up / iterative)
 3. Tim sort
 4. Radix sort
