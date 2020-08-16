@@ -8,22 +8,24 @@ public class SortDriver {
 	private static final Integer[] smallRand, rand, sorted, rev;
 	
 	static {
-		smallRand = random(20, 100);
-		rand = random(SIZE, RANGE);
-		sorted = random(SIZE, RANGE);
-		rev = random(SIZE, RANGE);
+		smallRand = randomInts(20, 100);
+		rand = randomInts(SIZE, RANGE);
+		sorted = randomInts(SIZE, RANGE);
+		rev = randomInts(SIZE, RANGE);
+
 		Arrays.sort(sorted);
 		Arrays.sort(rev, Collections.reverseOrder());
 	}
 	
-	public static void main(String[] args) { // Only methods with annotation are run
+	public static void main(String[] args) { // only methods with annotation are run
 		for (Method alg : SortingAlgorithms.class.getDeclaredMethods()) {
 			SortProperties p = alg.getAnnotation(SortProperties.class);
 			if (p != null) demo(alg, p);
 		}
+		System.out.println();
 	}
 	
-	private static Integer[] random(int size, int range) {
+	private static Integer[] randomInts(int size, int range) {
 		Integer[] array = new Integer[size];
 		for (int i = 0; i < array.length; i++) array[i] = (int) (Math.random() * range) + 1;
 		return array;
@@ -34,12 +36,12 @@ public class SortDriver {
 		listProperties(p);
 		
 		System.out.println("\n\t" + Arrays.toString(demoList));
-		sort(demoList, alg);
+		testSort(alg, demoList);
 		System.out.println("   >>\t" + Arrays.toString(demoList));
 		
-		System.out.printf("\n\t%d Random Values: %.3f ms", SIZE, time(alg, rand));
-		System.out.printf("\n\t%d Sorted Values: %.3f ms", SIZE, time(alg, sorted));
-		System.out.printf("\n\t%d Reversed Values: %.3f ms", SIZE, time(alg, rev));
+		System.out.printf("\n\t%d Random Values: %.3f ms", SIZE, testSort(alg, Arrays.copyOf(rand, rand.length)));
+		System.out.printf("\n\t%d Sorted Values: %.3f ms", SIZE, testSort(alg, Arrays.copyOf(sorted, sorted.length)));
+		System.out.printf("\n\t%d Reversed Values: %.3f ms", SIZE, testSort(alg, Arrays.copyOf(rev, rev.length)));
 	}
 	
 	private static void listProperties(SortProperties p) {
@@ -48,19 +50,27 @@ public class SortDriver {
 		System.out.println(p.adaptive() ? "   +\tAdaptive" : "   -\tNot adaptive");
 		System.out.println(p.stable() ? "   +\tStable" : "   -\tUnstable");
 	}
-	
-	private static void sort(Integer[] array, Method m) {
+
+	private static double testSort(Method alg, Integer[] data) {
+		long startTime = 0l, endTime = 0l;
+		Object[] invokeArgs = new Object[] { data };
+
 		try {
-			if (m.getDeclaringClass() == SortingAlgorithms.class) m.invoke(null, new Object[] { array });	
+			startTime = System.nanoTime();
+			alg.invoke(null, invokeArgs);
+			endTime = System.nanoTime();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+		assert isSorted(data);
+		return (double) (endTime - startTime) / 1000000;
 	}
 	
-	private static double time(Method alg, Integer[] data) {
-		Integer[] array = Arrays.copyOf(data, data.length);
-		long startTime = System.nanoTime();
-		sort(array, alg);
-		return (double) (System.nanoTime() - startTime) / 1000000;
+	private static <T extends Comparable<T>> boolean isSorted(T[] list) {
+		for (int i = 0; i < list.length - 1; i++) {
+			if (list[i].compareTo(list[i + 1]) > 0) return false;
+		}
+		return true;
 	}
 }
